@@ -1,0 +1,42 @@
+/* Set the Navbar background color */
+.navbar {
+    font-family: "Comic Sans MS", cursive;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lavender;
+    padding: 15px;
+}
+
+/* Style the Navbar Brand */
+.navbar-brand {
+    padding: 0;
+}
+
+/* Style the Navbar Brand image */
+.navbar-brand img {
+    height: 50px;
+}
+
+/* Set the Navbar links to use flexbox */
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+}
+
+/* Style the Navbar links */
+.navbar-nav .nav-link {
+    font-family: "Comic Sans MS", cursive;
+    /* color:  */
+    text-transform: uppercase;
+    padding: 7px 11px;
+    margin: 0 4px;
+    border-radius: 3px;
+}
+
+/* Style the Navbar links on hover */
+.navbar-nav .nav-link:hover {
+    background-color: teal;
+    color: #fff;
+}
