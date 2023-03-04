@@ -1,27 +1,29 @@
 import React from 'react';
-import Navbarr from "../Navbarr";
-import { useState, useEffect } from 'react'
-import Albums from './Albums';
+import Navbarr from '../Navbarr';
+import Yerin from '../assets/Yerin.jpg'
 
 
-const Homepage = () => {
-
-  const [albums, setAlbums] = useState([])
-
-  useEffect(()=> {
-    const request = async () => {
-      let req = await fetch("http://127.0.0.1:3000/albums")
-      let res = await req.json()
-      setAlbums(res)
-    }
-    request()
-  },[])
+const Homepage = ({albums,search}) => {
+ 
+  const albumFilter = albums.filter((album) => {
+    return (
+      album.release_date.toLowerCase().includes(search.toLowerCase())
+    )
+  })
 
 
   return (
     <div>
-      <Navbarr />
-      {/* <Albums albums={albums}/> */}
+      {/* <Navbarr /> */}
+      {albumFilter.map((album) => {
+        return (
+          <div key={album.id}>
+            <img width="500px" height="500px" src={album.album_image} />
+          </div>
+        );
+      })}
+      <img  width="1900px" height="885px" src = {Yerin} />
+   
     </div>
   );
 }

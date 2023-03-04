@@ -10,6 +10,20 @@ import Merchandise from './components/Merchandise'
 import Cart from './components/Cart'
 
 function App() {
+  // const [user, setUser] = useState(null)
+
+  // const handleLogin = (user) => {
+  //   setUser(user)
+  // }
+
+  // const handleSignup = (user) => {
+  //   setUser(user)
+  // }
+
+  // const logout = () => {
+  //   Cookies.remove('token')
+  //   setUser(null)
+  // }
 
   const router = createBrowserRouter([
      {
@@ -55,7 +69,6 @@ export default App
 // import { useState, useRef, useEffect } from 'react'
 // import Cookies from 'js-cookie'
 // import './App.css'
-
 // function Profile({ user }) {
 //   return (
 //     <>
@@ -111,4 +124,3 @@ export default App
 //   )
 // }
 // export default App
-

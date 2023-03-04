@@ -1,40 +1,33 @@
-// import Navbarr from "../Navbarr";
-// import React from "react";
-
-// const Albums = ({albums}) => {
-
-//     return (
-//         <div>
-//             <Navbarr />
-//             {albums.map((album) => {
-//                 return (
-//                     <div>
-//                         <img width="250px" height="300px" src={album.image} />
-//                     </div>
-//                 );
-//             })}
-//         </div>
-//     )
-// }
-
-// export default Albums;
-
 import Navbarr from "../Navbarr";
 import React from "react";
+import { useState, useEffect } from 'react'
+import Homepage from "./Homepage";
+import AlbumSearch from "./MerchSearch";
 
-const Albums = ({ albums }) => {
+
+const Albums = () => {
+
+const [albums, setAlbums] = useState([])
+const [search, setSearch] = useState('')
+
+    useEffect(() => {
+        const request = async () => {
+            let req = await fetch("http://127.0.0.1:3000/albums")
+            let res = await req.json()
+            console.log(res)
+            setAlbums(res)
+        }
+        request()
+    }, [])
+    
     return (
         <div>
             <Navbarr />
-            {albums.map((album, index) => {
-                return (
-                    <div key={index}>
-                        <img width="250px" height="300px" src={album.image} />
-                    </div>
-                );
-            })}
+            <AlbumSearch search={search} setSearch={setSearch}/>
+            <Homepage albums={albums} search={search}/>
         </div>
-    );
-};
+    )
+}
 
 export default Albums;
+
