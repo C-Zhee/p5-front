@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from 'react'
 import Homepage from "./Homepage";
 import AlbumSearch from "./MerchSearch";
-
+import Yerin from '../assets/Yerin.jpg'
 
 const Albums = () => {
 
@@ -24,7 +24,7 @@ const [search, setSearch] = useState('')
         <div>
             <Navbarr />
             <AlbumSearch search={search} setSearch={setSearch}/>
-            <Homepage albums={albums} search={search}/>
+            <Homepage albums={albums} search={search} Yerin={Yerin}/>
         </div>
     )
 }
