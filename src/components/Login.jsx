@@ -1,29 +1,37 @@
-import { useState, useRef } from 'react'
-import Cookies from 'js-cookie'
+import { useState, useRef } from 'react';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
-function Login({ onLogin }) {
-    const form = useRef()
+function Login({user, setUser}) {
+const navigate = useNavigate()
+    const form = useRef();
+
+  
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        const formData = new FormData(form.current)
-        const req = await fetch("http://127.0.0.1:3000/login", {
+        e.preventDefault();
+        let formData = new FormData(form.current);
+        let req = await fetch("http://127.0.0.1:3000/login", {
             method: "POST",
             body: formData
-        })
-        const res = await req.json()
-        Cookies.set('token', res.token)
-        onLogin(res.user)
-    }
+        });
+        let res = await req.json();
+        Cookies.set('token', res.token);
+        setUser(res.user);
+        navigate("./homepage")
+        // onLogin(res.user);
+    };
 
     return (
-        <form onSubmit={handleSubmit} ref={form}>
-            <h2>Login</h2>
-            <input placeholder="enter email" name='email' type='email'></input>
-            <input placeholder="enter password" name='password' type='password'></input>
-            <button>LOGIN</button>
-        </form>
-    )
+        <div>
+            {user && <p>You are logged in as {user.username}</p>}
+            <form onSubmit={handleSubmit} ref={form}>
+                <input placeholder="enter email" name="email" type="email" />
+                <input placeholder="enter password" name="password" type="password" />
+                <button>LOGIN</button>
+            </form>
+        </div>
+    );
 }
 
 export default Login;

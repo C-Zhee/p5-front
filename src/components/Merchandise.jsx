@@ -1,9 +1,9 @@
 import Navbarr from "../Navbarr";
 import React from "react";
 import { useState, useEffect } from 'react'
-import Cart from "./Cart";
+import MerchInfo from "./MerchInfo";
 import MerchSearch from "./MerchSearch";
-// import Navbarr from "../Navbarr";
+
 
 const Merchandise = () => {
 
@@ -24,7 +24,7 @@ const [search, setSearch] = useState('')
         <div>
             <Navbarr />
             <MerchSearch search={search} setSearch={setSearch}/>
-            <Cart merch={merch} search={search} />
+            <MerchInfo merch={merch} search={search} />
 
         </div>
     )

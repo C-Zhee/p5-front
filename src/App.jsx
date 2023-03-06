@@ -1,4 +1,5 @@
 import './App.css'
+import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Login from './components/Login'
@@ -8,27 +9,15 @@ import Albums from './components/Albums'
 import Bio from './components/Bio'
 import Merchandise from './components/Merchandise'
 import Cart from './components/Cart'
+import Celebrate from './components/Celebrate';
+
 
 function App() {
-  // const [user, setUser] = useState(null)
-
-  // const handleLogin = (user) => {
-  //   setUser(user)
-  // }
-
-  // const handleSignup = (user) => {
-  //   setUser(user)
-  // }
-
-  // const logout = () => {
-  //   Cookies.remove('token')
-  //   setUser(null)
-  // }
-
+  const [user, setUser] = useState(null);
   const router = createBrowserRouter([
      {
       path: '/',
-      element: < Login />
+      element: < Login user  = {user} setUser = {setUser}/>
     },
     {
       path: '/signup',
@@ -36,7 +25,7 @@ function App() {
     },
     {
       path: '/homepage',
-      element: <Homepage />
+      element: <Homepage user={user}/>
     },
     {
       path: '/albums',
@@ -53,6 +42,10 @@ function App() {
     {
       path: 'cart',
       element: < Cart />
+    },
+    {
+      path: '/celebrate',
+      element: <Celebrate/>
     }
   ])
 
@@ -68,7 +61,7 @@ export default App
 
 // import { useState, useRef, useEffect } from 'react'
 // import Cookies from 'js-cookie'
-// import './App.css'
+// // import './App.css'
 // function Profile({ user }) {
 //   return (
 //     <>
@@ -76,7 +69,7 @@ export default App
 //     </>
 //   )
 // }
-// function App() {
+// function Login() {
 //   const [user, setUser] = useState(null)
 //   const form = useRef()
 //   useEffect(() => {
@@ -123,4 +116,4 @@ export default App
 //     </div>
 //   )
 // }
-// export default App
+// export default Login

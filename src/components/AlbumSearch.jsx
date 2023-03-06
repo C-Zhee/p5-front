@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const MerchSearch = ({ search, setSearch }) => {
+const AlbumSearch = ({ search, setSearch }) => {
 
     return (
         <div >
@@ -18,4 +18,4 @@ const MerchSearch = ({ search, setSearch }) => {
 }
 
 
-export default MerchSearch
+export default AlbumSearch;

@@ -3,3 +3,9 @@
     grid-template-columns: auto auto auto auto auto auto;
     padding: 10px;
 }
+
+body {
+    background-color: lightblue;
+    background-image: url('../assets/Yerin.jpg');
+    background-repeat: repeat-y;
+}

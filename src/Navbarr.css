@@ -1,0 +1,42 @@
+/* Set the Navbar background color */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lavender;
+    padding: 15px;
+}
+
+/* Style the Navbar Brand */
+.navbar-brand {
+    padding: 0;
+}
+
+/* Style the Navbar Brand image */
+.navbar-brand img {
+    height: 50px;
+}
+
+/* Set the Navbar links to use flexbox */
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Style the Navbar links */
+.navbar-nav .nav-link {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #333;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Style the Navbar links on hover */
+.navbar-nav .nav-link:hover {
+    background-color: teal;
+    color: #fff;
+}
