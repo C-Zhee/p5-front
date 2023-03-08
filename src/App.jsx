@@ -29,13 +29,6 @@ function App() {
       loadUser()
   }, [])
 
-    const logout = () => {
-    Cookies.remove('token')
-    setUser(null)
-  }
-
-  <button onClick={logout}>logout</button>
-
   const router = createBrowserRouter([
      {
       path: '/',

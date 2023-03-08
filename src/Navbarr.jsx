@@ -6,8 +6,14 @@ import './Navbarr.css'
 
 const Navbarr = () => {
 
+    const logout = () => {
+        Cookies.remove('token')
+        setUser(null)
+    }
 
-
+    <button onClick={logout}>logout</button>
+    
+    
     return (
         <div>
             <Navbar>
@@ -18,6 +24,7 @@ const Navbarr = () => {
                         <Nav.Link href="/merch">Merchandise</Nav.Link>
                         <Nav.Link href="/cart">Cart</Nav.Link>
                         <Nav.Link href="/celebrate">🥳</Nav.Link>
+                    <Nav.Link href="/">🐌</Nav.Link>
                     </Nav>
             </Navbar>
         </div>
