@@ -1,28 +1,22 @@
-import React from 'react';
-import Navbarr from '../Navbarr';
-import Yerin from '../assets/Yerin.jpg'
+import React from "react";
+import Navbarr from "../Navbarr";
 
-
-
-const MerchInfo = ({ merch, search }) => {
+const MerchInfo = ({ merch, search, addToCart }) => {
     const merchFilter = merch.filter((merch) => {
-        return (
-            merch.product_name.toLowerCase().includes(search.toLowerCase())
-        )
-    })
-
+        return merch.product_name.toLowerCase().includes(search.toLowerCase());
+    });
 
     return (
         <div>
-            {/* <Navbarr /> */}
             {merchFilter.map((merch) => {
                 return (
-                    <div key={merch.id} >
+                    <div key={merch.id}>
                         <p>{merch.product_name}</p>
                         <p>${merch.product_price}</p>
                         <p>Quantity: {merch.product_quantity}</p>
-                        <img width="500px" height="500px" src={merch.product_image}/> <br/>
-                        <button>Add to cart!</button>
+                        <img width="500px" height="500px" src={merch.product_image} />
+                        <br />
+                        <button onClick={() => addToCart(merch)}>Add to cart!</button>
                     </div>
                 );
             })}

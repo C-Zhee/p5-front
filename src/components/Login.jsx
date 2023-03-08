@@ -18,17 +18,19 @@ const navigate = useNavigate()
         let res = await req.json();
         Cookies.set('token', res.token);
         setUser(res.user);
-        navigate("./homepage")
+        navigate("/homepage")
         // onLogin(res.user);
+        console.log(res)
     };
 
     return (
         <div>
-            {user && <p>You are logged in as {user.username}</p>}
+            {user && <p></p>}
             <form onSubmit={handleSubmit} ref={form}>
                 <input placeholder="enter email" name="email" type="email" />
                 <input placeholder="enter password" name="password" type="password" />
                 <button>LOGIN</button>
+                <button onClick={() => navigate("/signup")}>SIGNUP</button>
             </form>
         </div>
     );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const AlbumInfo = ({ albums, search }) => {
+const AlbumInfo = ({ albums, search, newAlbum, removeAlbum }) => {
     const [favorite, setfavorite] = useState([]);
 
     const albumFilter = albums.filter((album) => {
@@ -15,6 +15,7 @@ const AlbumInfo = ({ albums, search }) => {
             setfavorite([...favorite, albumId]);
         }
     };
+    console.log(albums)
 
     return (
         <div className="album-container">
@@ -42,7 +43,10 @@ const AlbumInfo = ({ albums, search }) => {
                                 {isFavorite ? '💜' : '♡'}
                             </button>
                         </div>
+                        <button onClick={() => { newAlbum(album) }}>New Album</button>
+                        <button onClick={() => { removeAlbum(album) }}>Remove Album</button>
                     </div>
+                // Where do I put this?? :]
                 );
             })}
         </div>

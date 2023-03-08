@@ -10,14 +10,40 @@ import Bio from './components/Bio'
 import Merchandise from './components/Merchandise'
 import Cart from './components/Cart'
 import Celebrate from './components/Celebrate';
+import LandingPage from './LandingPage';
+import Cookies from 'js-cookie'
 
 
 function App() {
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const loadUser = async () => {
+      let req = await fetch("http://127.0.0.1:3000/me", {
+        headers: { 'Authorization': Cookies.get('token') }
+      })
+      let res = await req.json()
+      if (res.user) setUser(res.user)
+    }
+    if (Cookies.get('token'))
+      loadUser()
+  }, [])
+
+    const logout = () => {
+    Cookies.remove('token')
+    setUser(null)
+  }
+
+  <button onClick={logout}>logout</button>
+
   const router = createBrowserRouter([
      {
       path: '/',
-      element: < Login user  = {user} setUser = {setUser}/>
+      element: <LandingPage />
+    },
+    {
+      path: '/login',
+      element: < Login user={user} setUser={setUser} />
     },
     {
       path: '/signup',
