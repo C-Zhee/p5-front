@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import Navbarr from "../Navbarr";
 
 const MerchInfo = ({ merch, search, addToCart, likes, cart }) => {
@@ -16,7 +17,7 @@ const MerchInfo = ({ merch, search, addToCart, likes, cart }) => {
                         <p>Quantity: {merch.product_quantity}</p>
                          <img style={{border: "2px solid black"}} width="500px" height="500px" src={merch.product_image} />
                         <br />
-                        <button onClick={() => {addToCart(merch)}}>Add to cart!{likes}</button>
+                        <button onClick={() => {Navigate('/cart')}}>Add to cart!</button>
                     </div>
                 );
             })}

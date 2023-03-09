@@ -22,9 +22,11 @@ const Navbarr = () => {
                     <Nav className="mr-auto" >
                         <Nav.Link href="/bio">Bio</Nav.Link>
                         <Nav.Link href="/albums">Albums</Nav.Link>
+                        <Nav.Link href="/concert">Concert</Nav.Link>
+                        {/* <Nav.Link href="/celebrate">🥳</Nav.Link> */}
                         <Nav.Link href="/merch">Merchandise</Nav.Link>
-                        {/* <Nav.Link href="/cart">Cart</Nav.Link> */}
-                    <div class="btn-group">
+                        <Nav.Link href="/cart">Cart</Nav.Link>
+                    {/* <div class="btn-group">
                         <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Cart
                         </button>
@@ -36,8 +38,7 @@ const Navbarr = () => {
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Separated link</a>
                         </div>
-                    </div>
-                        <Nav.Link href="/celebrate">🥳</Nav.Link>
+                    </div> */}
                     <Nav.Link href="/">Funny Button</Nav.Link>
                     </Nav>
             </Navbar>
