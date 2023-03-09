@@ -1,26 +1,34 @@
 import React from "react";
 import Navbarr from "../Navbarr";
 
-const MerchInfo = ({ merch, search, addToCart }) => {
+const MerchInfo = ({ merch, search, addToCart, likes, cart }) => {
     const merchFilter = merch.filter((merch) => {
         return merch.product_name.toLowerCase().includes(search.toLowerCase());
     });
 
     return (
-        <div>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
             {merchFilter.map((merch) => {
                 return (
-                    <div key={merch.id}>
-                        <p>{merch.product_name}</p>
+                    <div key={merch.id} >
+                        <p>{merch.product_name} </p>
                         <p>${merch.product_price}</p>
                         <p>Quantity: {merch.product_quantity}</p>
-                        <img width="500px" height="500px" src={merch.product_image} />
+                         <img style={{border: "2px solid black"}} width="500px" height="500px" src={merch.product_image} />
                         <br />
-                        <button onClick={() => addToCart(merch)}>Add to cart!</button>
+                        <button onClick={() => {addToCart(merch)}}>Add to cart!{likes}</button>
                     </div>
                 );
             })}
-
+                {/* <h1>hello</h1>
+            {cart?.map((x)=> {
+                return (
+                    <div>
+                        <div>lets test this</div>
+                        {x.id}
+                    </div>
+                )
+            })} */}         
         </div>
     );
 }

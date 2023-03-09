@@ -15,14 +15,16 @@ const AlbumInfo = ({ albums, search, newAlbum, removeAlbum }) => {
             setfavorite([...favorite, albumId]);
         }
     };
-    console.log(albums)
-
+   
     return (
         <div className="album-container">
             {albumFilter.map((album) => {
+                console.log(album.id)
+
                 const isFavorite = favorite.includes(album.id);
 
                 return (
+                    
                     <div className="album-wrapper" key={album.id}>
                         <div className="album">
                             <img
@@ -43,6 +45,7 @@ const AlbumInfo = ({ albums, search, newAlbum, removeAlbum }) => {
                                 {isFavorite ? '💜' : '♡'}
                             </button>
                         </div>
+
                         <button onClick={() => { newAlbum(album) }}>New Album</button>
                         <button onClick={() => { removeAlbum(album) }}>Remove Album</button>
                     </div>

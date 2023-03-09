@@ -16,6 +16,9 @@ import Cookies from 'js-cookie'
 
 function App() {
   const [user, setUser] = useState(null);
+  const [cart, setCart] = useState([]);
+  const [merch, setMerch] = useState([])
+  const [likes, setLikes] = useState(0)
 
   useEffect(() => {
     const loadUser = async () => {
@@ -29,12 +32,30 @@ function App() {
       loadUser()
   }, [])
 
-    const logout = () => {
-    Cookies.remove('token')
-    setUser(null)
-  }
+  useEffect(() => {
+    const request = async () => {
+      let req = await fetch("http://127.0.0.1:3000/products");
+      let res = await req.json();
+      console.log(res);
+      setMerch(res);
+    };
+    request();
+  }, []);
 
-  <button onClick={logout}>logout</button>
+
+
+  const addToCart = (product) => {
+    console.log(product)
+    if (cart.includes(product.id)) return;
+    console.log('test', product)
+    setCart([...cart, {...product}]);
+    setLikes(likes + 1)
+  };
+  // console.log('test2',cart)
+
+  const removeFromCart = (product) => {
+    setCart(cart.filter((item) => item !== product));
+  };
 
   const router = createBrowserRouter([
      {
@@ -63,11 +84,11 @@ function App() {
     },
     {
       path: '/merch',
-      element: <Merchandise />
+      element: <Merchandise cart={cart} setCart={setCart} merch={merch} addToCart={addToCart} likes={likes} />
     },
     {
-      path: 'cart',
-      element: < Cart />
+      path: '/cart',
+      element: < Cart /*cart={[]}*/ cart={cart} removeFromCart={removeFromCart}  />
     },
     {
       path: '/celebrate',
