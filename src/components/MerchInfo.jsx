@@ -1,7 +1,7 @@
 import React from "react";
 import Navbarr from "../Navbarr";
 
-const MerchInfo = ({ merch, search, addToCart, likes }) => {
+const MerchInfo = ({ merch, search, addToCart, likes, cart }) => {
     const merchFilter = merch.filter((merch) => {
         return merch.product_name.toLowerCase().includes(search.toLowerCase());
     });
@@ -20,7 +20,15 @@ const MerchInfo = ({ merch, search, addToCart, likes }) => {
                     </div>
                 );
             })}
-
+                {/* <h1>hello</h1>
+            {cart?.map((x)=> {
+                return (
+                    <div>
+                        <div>lets test this</div>
+                        {x.id}
+                    </div>
+                )
+            })} */}         
         </div>
     );
 }

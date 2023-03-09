@@ -14,7 +14,7 @@ const Merchandise = ({cart, setCart, merch, addToCart, likes}) => {
         <div className="img">
             <Navbarr />
             <MerchSearch search={search} setSearch={setSearch} />
-            <MerchInfo merch={merch} search={search} addToCart={addToCart} likes={likes}/>
+            <MerchInfo merch={merch} search={search} addToCart={addToCart} likes={likes} cart={cart}/>
         </div>
     );
 };
