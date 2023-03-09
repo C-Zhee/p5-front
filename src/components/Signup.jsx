@@ -5,6 +5,7 @@ function Signup({ onSignup }) {
   const navigate = useNavigate()
   const [user, setUser] = useState(null);
   const form = useRef();
+  // make a state for each login credential, and they need to to tied to an onchange event for each input
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +24,7 @@ function Signup({ onSignup }) {
       {user && <p>You have signed up as {user.username}</p>}
       <form onSubmit={handleSubmit} ref={form}>
         <input placeholder="enter first name" name="first name" type="first name" />
+         {/* onChange=((e)=>setFirstName(e.target.value)) */}
         <input placeholder="enter last name" name="last name" type="last name" />
         <input placeholder="enter age" name="age" type="age" />
         <input placeholder="enter username" name="username" type="text" />

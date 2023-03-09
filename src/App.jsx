@@ -11,7 +11,10 @@ import Merchandise from './components/Merchandise'
 import Cart from './components/Cart'
 import Celebrate from './components/Celebrate';
 import LandingPage from './LandingPage';
+import Concert from './components/Concert';
+import Checkout from './components/Checkout';
 import Cookies from 'js-cookie'
+
 
 
 function App() {
@@ -88,7 +91,15 @@ function App() {
     },
     {
       path: '/cart',
-      element: < Cart /*cart={[]}*/ cart={cart} removeFromCart={removeFromCart}  />
+      element: < Cart /*cart={[]}*/ cart={cart} removeFromCart={removeFromCart} merch={merch} setMerch={setMerch} />
+    },
+    {
+      path: '/thankyou',
+      element: <Checkout />
+    },
+    {
+      path: '/concert',
+      element: <Concert />
     },
     {
       path: '/celebrate',
