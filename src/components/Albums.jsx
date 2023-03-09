@@ -1,4 +1,4 @@
-// import Navbarr from "../Navbarr";
+import Navbarr from "../Navbarr";
 import React from "react";
 import { useState, useEffect } from 'react'
 import AlbumInfo from "./AlbumInfo";
@@ -71,7 +71,7 @@ const [search, setSearch] = useState('')
     return (
         <div>
         
-            <Homepage />
+            <Navbarr />
             <AlbumSearch search={search} setSearch={setSearch}/>
             <AlbumInfo albums={albums} search={search} newAlbum={newAlbum} removeAlbum={removeAlbum} />
           

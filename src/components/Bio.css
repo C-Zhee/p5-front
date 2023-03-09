@@ -1,0 +1,15 @@
+.bio-container {
+    padding: 20px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
