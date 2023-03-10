@@ -7,7 +7,7 @@ import Homepage from "./Homepage";
 
 // import Yerin from '../assets/Yerin.jpg'
 
-const Albums = () => {
+const Albums = ({ setAlbumList }) => {
 
 const [albums, setAlbums] = useState([])
 const [search, setSearch] = useState('')
@@ -73,7 +73,7 @@ const [search, setSearch] = useState('')
         
             <Navbarr />
             <AlbumSearch search={search} setSearch={setSearch}/>
-            <AlbumInfo albums={albums} search={search} newAlbum={newAlbum} removeAlbum={removeAlbum} />
+            <AlbumInfo albums={albums} search={search} newAlbum={newAlbum} removeAlbum={removeAlbum} setAlbumList={setAlbumList}/>
           
         </div>
     )

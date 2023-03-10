@@ -1,27 +1,43 @@
 import React, { useState } from 'react';
+import { useAlbumContext } from './AlbumContext';
 
+const AlbumInfo = ({ albums, search, newAlbum, removeAlbum, setAlbumList }) => {
+    // const [favorite, setfavorite] = useState([]);
 
-const AlbumInfo = ({ albums, search, newAlbum, removeAlbum }) => {
-    const [favorite, setfavorite] = useState([]);
+    const { favorites, setFavorites } = useAlbumContext()
+
 
     const albumFilter = albums.filter((album) => {
         return album.release_date.toLowerCase().includes(search.toLowerCase());
     });
 
-    const favoriteButton = (albumId) => {
-        if (favorite.includes(albumId)) {
-            setfavorite(favorite.filter((id) => id !== albumId));
+    //     // setAlbumList((prevState) => {
+    //     //     return [...prevState, album]
+    //     // })
+
+        
+    const favoriteButton = (album) => {
+        if (favorites.includes(album.id)) {
+            setFavorites(favorites.filter((id) => id !== album.id));
         } else {
-            setfavorite([...favorite, albumId]);
+            setFavorites([...favorites, album.id]);
         }
     };
+
+    // const favoriteButton = (album) => {
+    //     if (favorites.includes(album.album_id)) {
+    //         setFavorites(favorites.filter((id) => id !== album.album_id));
+    //     } else {
+    //         setFavorites([...favorites, album.album_id]);
+    //     }
+    // };
    
     return (
         <div className="album-container">
             {albumFilter.map((album) => {
-                console.log(album.id)
 
-                const isFavorite = favorite.includes(album.id);
+
+                const isFavorite = favorites.includes(album.id);
 
                 return (
                     
@@ -40,7 +56,7 @@ const AlbumInfo = ({ albums, search, newAlbum, removeAlbum }) => {
                         <div className="favorite-button-wrapper">
                             <button
                                 className={`favorite-button ${isFavorite ? 'active' : ''}`}
-                                onClick={() => favoriteButton(album.id)}
+                                onClick={() => favoriteButton(album)}
                             >
                                 {isFavorite ? '💜' : '♡'}
                             </button>
