@@ -11,11 +11,11 @@ const MerchInfo = ({ merch, search, addToCart, likes, cart }) => {
         <div style={{ display: "flex", flexWrap: "wrap" }}>
             {merchFilter.map((merch) => {
                 return (
-                    <div key={merch.id} >
-                        <p>{merch.product_name} </p>
-                        <p>${merch.product_price}</p>
-                        <p>Quantity: {merch.product_quantity}</p>
-                         <img style={{border: "2px solid black"}} width="500px" height="500px" src={merch.product_image} />
+                    <div key={merch.id} > <br/>
+                        <h2>{merch.product_name} </h2> <br/>
+                        <h2>${merch.product_price}</h2> <br/>
+                        <h2>Quantity: {merch.product_quantity}</h2> <br/ >
+                         <img style={{border: "2px solid black"}} width="500px" height="500px" src={merch.product_image} /> <br/ >
                         <br />
                         <button onClick={() => {Navigate('/cart')}}>Add to cart!</button>
                     </div>
