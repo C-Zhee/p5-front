@@ -36,7 +36,6 @@ const AlbumInfo = ({ albums, search, newAlbum, removeAlbum, setAlbumList }) => {
         <div className="album-container">
             {albumFilter.map((album) => {
 
-
                 const isFavorite = favorites.includes(album.id);
 
                 return (

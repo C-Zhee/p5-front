@@ -22,9 +22,9 @@ const Navbarr = () => {
             <Navbar>
                     <Link to="/homepage">Home</Link>    
                     <Nav className="mr-auto" >
-                        <Nav.Link href="/albums">Albums</Nav.Link>
-                        <Nav.Link href="/bio">Bio</Nav.Link>
-                        <Nav.Link href="/concert">Concert</Nav.Link>
+                        <Link to="/albums">Albums</Link> <br/>
+                        <Link to="/bio">Bio</Link>
+                        <Link to="/concert">Concert</Link>
                         {/* <Nav.Link href="/celebrate">🥳</Nav.Link> */}
                         <Nav.Link href="/merch">Merchandise</Nav.Link>
                         <Nav.Link href="/cart">Cart</Nav.Link>

@@ -4,9 +4,11 @@ import './Homepage.css';
 import { useAlbumContext } from './AlbumContext';
 
 const Homepage = ({ user, albumList }) => {
-  // console.log(user)
+  console.log(albumList)
   const [profilePicture, setProfilePicture] = useState(null);
   const { favorites } = useAlbumContext()
+  
+  //console.log(favorites)
 
  
 
@@ -25,6 +27,7 @@ const Homepage = ({ user, albumList }) => {
     // console.log(profilePicture);
   }
 
+  console.log(favorites)
 
   return (
     <div>
@@ -35,11 +38,13 @@ const Homepage = ({ user, albumList }) => {
       {user && <h1 className="user-age">Email: {user.email}</h1>}
 
       {favorites.map((album)=>{
+        
+        console.log(album)
   
         return (
           <div>
-            <h1>{album.album_id}</h1>
-            <img src={album.album_image} alt="image" />
+            <h1>Album Id: {album}</h1>
+            {/* <img src={album.album_image} alt="image" /> */}
           </div>
         )
       })}

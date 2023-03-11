@@ -49,7 +49,7 @@ function App() {
 
 
   const addToCart = (product) => {
-    console.log(product)
+    //console.log(product)
     if (cart.includes(product.id)) return;
     console.log('test', product)
     setCart([...cart, {...product}]);
