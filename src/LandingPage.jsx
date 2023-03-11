@@ -13,8 +13,8 @@ const LandingPage = () => {
     return (
         <div className="landing-container">
             <a href="/login">
-                <h1>Click Me! </h1>
-                <h1>Or Anywhere on the image 😊</h1>
+                <h1>Yerin Baek </h1>
+                <h1> 😊</h1>
                 <img src={Y1} alt="Baek Gif" onClick={handleClick} height="700px" width="auto" />
             </a>
         </div>

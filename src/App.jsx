@@ -21,6 +21,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
   const [merch, setMerch] = useState([])
+  const [albumList, setAlbumList] = useState([])
   const [likes, setLikes] = useState(0)
 
   useEffect(() => {
@@ -39,7 +40,7 @@ function App() {
     const request = async () => {
       let req = await fetch("http://127.0.0.1:3000/products");
       let res = await req.json();
-      console.log(res);
+      // console.log(res);
       setMerch(res);
     };
     request();
@@ -48,7 +49,7 @@ function App() {
 
 
   const addToCart = (product) => {
-    console.log(product)
+    //console.log(product)
     if (cart.includes(product.id)) return;
     console.log('test', product)
     setCart([...cart, {...product}]);
@@ -75,11 +76,11 @@ function App() {
     },
     {
       path: '/homepage',
-      element: <Homepage user={user}/>
+      element: <Homepage user={user} albumList={albumList} />
     },
     {
       path: '/albums',
-      element: < Albums />
+      element: < Albums setAlbumList={setAlbumList}/>
     },
     {
       path: '/bio',

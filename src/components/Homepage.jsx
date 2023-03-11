@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import Navbarr from '../Navbarr';
 import './Homepage.css';
+import { useAlbumContext } from './AlbumContext';
 
-
-const Homepage = ({ user }) => {
-  console.log(user)
+const Homepage = ({ user, albumList }) => {
+  console.log(albumList)
   const [profilePicture, setProfilePicture] = useState(null);
+  const { favorites } = useAlbumContext()
+  
+  //console.log(favorites)
+
+ 
 
   function handleFileInputChange(event) {
     const file = event.target.files[0];
@@ -19,9 +24,10 @@ const Homepage = ({ user }) => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(profilePicture);
+    // console.log(profilePicture);
   }
 
+  console.log(favorites)
 
   return (
     <div>
@@ -30,6 +36,18 @@ const Homepage = ({ user }) => {
       {user && <h1 className="user-age">Username: {user.user_name}</h1>}
       {user && <h1 className="user-age">Age: {user.user_age}</h1>}
       {user && <h1 className="user-age">Email: {user.email}</h1>}
+
+      {favorites.map((album)=>{
+        
+        console.log(album)
+  
+        return (
+          <div>
+            <h1>Album Id: {album}</h1>
+            {/* <img src={album.album_image} alt="image" /> */}
+          </div>
+        )
+      })}
      
     
       {profilePicture ? (

@@ -14,3 +14,7 @@
     font-family: 'Open Sans', 'Courier New', Courier, monospace;
 }
 
+.centered {
+    display: block;
+    margin: 0 auto;
+}

@@ -7,7 +7,7 @@ import Homepage from "./Homepage";
 
 // import Yerin from '../assets/Yerin.jpg'
 
-const Albums = () => {
+const Albums = ({ setAlbumList }) => {
 
 const [albums, setAlbums] = useState([])
 const [search, setSearch] = useState('')
@@ -17,7 +17,7 @@ const [search, setSearch] = useState('')
         const request = async () => {
             let req = await fetch("http://127.0.0.1:3000/albums")
             let res = await req.json()
-            console.log(res)
+            //console.log(res)
             setAlbums(res)
         }
         request()
@@ -46,7 +46,7 @@ const [search, setSearch] = useState('')
 
 
     const removeAlbum = (album) => {
-        console.log(album)
+        //console.log(album)
         fetch(`http://127.0.0.1:3000/albums/${album.id}`, {
             method: 'DELETE',
             headers: {
@@ -73,7 +73,7 @@ const [search, setSearch] = useState('')
         
             <Navbarr />
             <AlbumSearch search={search} setSearch={setSearch}/>
-            <AlbumInfo albums={albums} search={search} newAlbum={newAlbum} removeAlbum={removeAlbum} />
+            <AlbumInfo albums={albums} search={search} newAlbum={newAlbum} removeAlbum={removeAlbum} setAlbumList={setAlbumList}/>
           
         </div>
     )
