@@ -26,15 +26,7 @@ const Cart = ({ merch }) => {
         <div>
             <Navbarr />
             <h2>Shopping Cart</h2>
-            <h3>Hello, FlataJoey! Welcome to your shopping cart </h3>
-            <img src={s1} width="500px" length="500px"/>
-            <h1>Price: $30</h1>
-            <img src={s2} width="500px" length="500px" />
-            <h1>Price: $10</h1>
-            <img src={s3} width="500px" length="500px" />
-            <h1>Price: $20</h1> <br/>
-
-            <h1>Total: $60</h1>
+      
             <button className="button-4" type="button" onClick={() => navigate('/thankyou')}>Checkout Now!</button>
 
             {/* {Array.isArray(pics) && pics.length > 0 ? (
