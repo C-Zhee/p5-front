@@ -14,7 +14,7 @@ const Cart = ({ merch }) => {
     const navigate = useNavigate()
     useEffect(() => {
         const request = async () => {
-            let req = await fetch(`http://127.0.0.1:3000/item/${merch.id}`)
+            let req = await fetch(`http://127.0.0.1:3000/products/`)
             let res = await req.json()
             setPics(res)
             console.log(res)
@@ -29,21 +29,7 @@ const Cart = ({ merch }) => {
       
             <button className="button-4" type="button" onClick={() => navigate('/thankyou')}>Checkout Now!</button>
 
-            {/* {Array.isArray(pics) && pics.length > 0 ? (
-                pics.map((item) => {
-                    return (
-                        <div key={item.id}>
-                            <img src ={s1} />
-                            <p>{item.product_name}</p>
-                            <img src={item.product_image} width="500px" height="500px" />
-                            <p>${item.product_price}</p>
-                            <button>Buy Me Now</button>
-                        </div>
-                    )
-                })
-            ) : (
-                <p>Loading...</p>
-            )} */}
+          
         </div>
     );
 };

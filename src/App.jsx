@@ -48,14 +48,19 @@ function App() {
 
 
 
-  const addToCart = (product) => {
-    //console.log(product)
-    if (cart.includes(product.id)) return;
-    console.log('test', product)
-    setCart([...cart, {...product}]);
-    setLikes(likes + 1)
-  };
-  // console.log('test2',cart)
+  // const addToCart = (product) => {
+  //   if (cart.includes(product.id)) return;
+  //   console.log('test', product)
+  //   setCart([...cart, {...product}]);
+  //   setLikes(likes + 1)
+  // };
+
+  const addToCart = (merch) => {
+    if (cart.includes(merch)) return;
+    setCart([...cart, merch])
+  }
+
+
 
   const removeFromCart = (product) => {
     setCart(cart.filter((item) => item !== product));

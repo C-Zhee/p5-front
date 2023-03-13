@@ -11,7 +11,7 @@ const MerchInfo = ({ merch, search, addToCart, likes, cart }) => {
         <div style={{ display: "flex", flexWrap: "wrap" }}>
             {merchFilter.map((merch) => {
                 return (
-                    <div key={merch.id} > <br/>
+                    <div key={merch.id} onClick={() => { addToCart(merch) }}  > <br/>
                         <h2>{merch.product_name} </h2> <br/>
                         <h2>${merch.product_price}</h2> <br/>
                         <h2>Quantity: {merch.product_quantity}</h2> <br/ >
